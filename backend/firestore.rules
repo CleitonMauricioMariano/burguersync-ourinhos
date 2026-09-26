@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Regras de Segurança para BurguerSync Ourinhos
+    match /pedidos/{pedidoId} {
+      // Permite leitura pública em tempo real para sincronização da cozinha e clientes
+      allow read: if true;
+      
+      // Permite criação de pedidos com validação básica de campos obrigatórios
+      allow create: if request.resource.data.cliente.nome != null
+                    && request.resource.data.cliente.celular != null
+                    && request.resource.data.cliente.endereco != null
+                    && request.resource.data.itens.size() > 0
+                    && request.resource.data.status in ['Recebido', 'Em Preparo', 'Saiu para Entrega', 'Entregue'];
+      
+      // Permite atualização de status pela cozinha
+      allow update: if request.resource.data.status in ['Recebido', 'Em Preparo', 'Saiu para Entrega', 'Entregue'];
+      
+      // Restringe exclusão de registros
+      allow delete: if false;
+    }
+  }
+}
