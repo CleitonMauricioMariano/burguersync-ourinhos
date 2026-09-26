@@ -1,0 +1,18 @@
+# Arquivos de Ambiente e Chaves Sensíveis
+.env
+.env.local
+.env.*.local
+
+# Dependências e Módulos
+node_modules/
+package-lock.json
+
+# Diretórios Temporários e de Build
+.tmp/
+dist/
+build/
+
+# Logs e Arquivos de Sistema
+*.log
+.DS_Store
+Thumbs.db
