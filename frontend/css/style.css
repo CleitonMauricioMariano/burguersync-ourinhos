@@ -1,0 +1,128 @@
+/* BurguerSync Ourinhos - Design System Dark Neon Gastronomy */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap');
+
+:root {
+  --bg-main: #121214;
+  --bg-card: #202024;
+  --bg-container-low: #1b1b1d;
+  --bg-container-high: #2a2a2c;
+  --text-primary: #E1E1E6;
+  --text-secondary: #A8A8B3;
+  --accent-orange: #FF9000;
+  --accent-green: #04D361;
+  --accent-yellow: #EAEB2D;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --glass-bg: rgba(32, 32, 36, 0.65);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass);
+}
+
+/* 3D Floating Hover Effect */
+.card-lanche {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.2s ease;
+}
+
+.card-lanche:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 144, 0, 0.15);
+  border-color: rgba(255, 144, 0, 0.35);
+}
+
+/* Neon Glows */
+.neon-orange-glow {
+  box-shadow: 0 0 15px rgba(255, 144, 0, 0.45);
+}
+
+.neon-orange-glow:hover {
+  box-shadow: 0 0 28px rgba(255, 144, 0, 0.75);
+}
+
+.neon-green-glow {
+  box-shadow: 0 0 16px rgba(4, 211, 97, 0.45);
+}
+
+.neon-green-glow:hover {
+  box-shadow: 0 0 28px rgba(4, 211, 97, 0.8);
+}
+
+.neon-yellow-glow {
+  box-shadow: 0 0 12px rgba(234, 235, 45, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121214;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2c;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF9000;
+}
+
+/* Kitchen Kanban Cards */
+.card-pedido {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-pedido:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.55);
+}
+
+/* Pulse animation for new orders */
+@keyframes neon-pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(234, 235, 45, 0.6);
+  }
+  50% {
+    opacity: 0.75;
+    box-shadow: 0 0 20px rgba(234, 235, 45, 0.9);
+  }
+}
+
+.pulse-urgent {
+  animation: neon-pulse 1.8s infinite;
+}
+
+/* Radio button active style */
+.payment-tile input[type="radio"]:checked + div {
+  color: #04D361;
+}
+
+.payment-tile:has(input[type="radio"]:checked) {
+  border-color: #04D361;
+  background-color: rgba(4, 211, 97, 0.08);
+  box-shadow: 0 0 14px rgba(4, 211, 97, 0.2);
+}
